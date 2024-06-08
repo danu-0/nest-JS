@@ -17,6 +17,7 @@ model User {
   updatedAt DateTime  @updatedAt
   role      Role
   pesanan   Pesanan[]
+
 }
 
 model Produk {
@@ -30,6 +31,7 @@ model Produk {
   updatedAt DateTime  @updatedAt
   gambar    String?
   pesanan   Pesanan[]
+  payment   Payment[]
 }
 
 model Pesanan {
@@ -45,11 +47,30 @@ model Pesanan {
   updatedAt DateTime @updatedAt
   produk    Produk   @relation(fields: [produkId], references: [id])
   user      User     @relation(fields: [userId], references: [id])
+  payment Payment[]
+}
+
+model Payment {
+  id          Int       @id @default(autoincrement())
+  produkId    Int
+  pesananId   Int
+  harga       Int
+  status      PaymentStatus
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  produk    Produk   @relation(fields: [produkId], references: [id])
+  pesanan     Pesanan   @relation(fields: [pesananId], references: [id])
 }
 
 enum Role {
   PELANGGAN
   ADMIN
+}
+enum PaymentStatus {
+  PENDING
+  SUCCESS
+  FAILED
+  REFUNDED
 }
 
 
