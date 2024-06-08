@@ -54,11 +54,14 @@ model Payment {
   id          Int       @id @default(autoincrement())
   produkId    Int
   pesananId   Int
-  harga       Int
+  ProdukName  String?
+  qtt         Int?
+  harga       Int?
+  totalBayar  Int
   status      PaymentStatus
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
-  produk    Produk   @relation(fields: [produkId], references: [id])
+  produk      Produk   @relation(fields: [produkId], references: [id])
   pesanan     Pesanan   @relation(fields: [pesananId], references: [id])
 }
 
