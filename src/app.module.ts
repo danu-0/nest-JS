@@ -6,10 +6,10 @@ import { ProductModule } from './product/product.module';
 import { UserModule } from './user/user.module';
 import { LoginModule } from './login/login.module';
 import { PesananModule } from './pesanan/pesanan.module';
-import { PaymentModule } from './payment/payment.module';
+import { MidtransModule } from './midtrans/midtrans.module';
 
 @Module({
-  imports: [DatabaseModule, ProductModule, UserModule, LoginModule, PesananModule, PaymentModule],
+  imports: [DatabaseModule, ProductModule, UserModule, LoginModule, PesananModule, MidtransModule],
   controllers: [AppController],
   providers: [AppService],
 })

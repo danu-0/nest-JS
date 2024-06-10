@@ -15,12 +15,13 @@ const product_module_1 = require("./product/product.module");
 const user_module_1 = require("./user/user.module");
 const login_module_1 = require("./login/login.module");
 const pesanan_module_1 = require("./pesanan/pesanan.module");
+const midtrans_module_1 = require("./midtrans/midtrans.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [database_module_1.DatabaseModule, product_module_1.ProductModule, user_module_1.UserModule, login_module_1.LoginModule, pesanan_module_1.PesananModule],
+        imports: [database_module_1.DatabaseModule, product_module_1.ProductModule, user_module_1.UserModule, login_module_1.LoginModule, pesanan_module_1.PesananModule, midtrans_module_1.MidtransModule],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })

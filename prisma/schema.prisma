@@ -17,7 +17,6 @@ model User {
   updatedAt DateTime  @updatedAt
   role      Role
   pesanan   Pesanan[]
-
 }
 
 model Produk {
@@ -31,7 +30,6 @@ model Produk {
   updatedAt DateTime  @updatedAt
   gambar    String?
   pesanan   Pesanan[]
-  payment   Payment[]
 }
 
 model Pesanan {
@@ -44,36 +42,29 @@ model Pesanan {
   desk      String?
   kategori  String? 
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime @default(now())
   produk    Produk   @relation(fields: [produkId], references: [id])
   user      User     @relation(fields: [userId], references: [id])
-  payment Payment[]
+  payments  Payment[]
 }
 
 model Payment {
-  id          Int       @id @default(autoincrement())
-  produkId    Int
-  pesananId   Int
-  ProdukName  String?
-  qtt         Int?
-  harga       Int?
-  totalBayar  Int
+  id          Int         @id @default(autoincrement())
+  namaPemesan String?
+  jumlahBayar Int
   status      PaymentStatus
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-  produk      Produk   @relation(fields: [produkId], references: [id])
-  pesanan     Pesanan   @relation(fields: [pesananId], references: [id])
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  pesanan     Pesanan[]
 }
 
 enum Role {
   PELANGGAN
   ADMIN
 }
+
 enum PaymentStatus {
   PENDING
   SUCCESS
   FAILED
-  REFUNDED
 }
-
-
