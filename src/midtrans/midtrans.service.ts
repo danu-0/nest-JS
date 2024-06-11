@@ -55,6 +55,6 @@ export class MidtransService {
     }
   }
   getPaymentEndpoint(): string {
-    return `${this.merchantBaseUrl}/midtrans/payment`; // Tentukan endpoint pembuatan pembayaran di sini
+    return `${this.merchantBaseUrl}/midtrans/payment`; 
   }
 }
