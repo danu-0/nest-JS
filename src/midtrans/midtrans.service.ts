@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Get, Injectable } from '@nestjs/common';
 import axios from 'axios';
 import { CreatePaymentDto } from './dto/create-payment.dto';
 const midtransClient = require('midtrans-client');
@@ -56,5 +56,20 @@ export class MidtransService {
   }
   getPaymentEndpoint(): string {
     return `${this.merchantBaseUrl}/midtrans/payment`; 
+  }
+
+  async getTransactionStatus(orderId: string) {
+    try {
+      const snap = new midtransClient.Snap({
+        isProduction: false,
+        serverKey: this.serverKey,
+      });
+
+      const transaction = await snap.transaction.status(orderId);
+      return transaction;
+    } catch (error) {
+      console.error('Error fetching transaction status:', error);
+      throw new Error('Failed to fetch transaction status: ' + error.message);
+    }
   }
 }

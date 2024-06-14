@@ -29,6 +29,9 @@ let MidtransController = class MidtransController {
             throw new common_1.HttpException(error.message, common_1.HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    testEndpoint() {
+        return 'Midtrans endpoint is working!';
+    }
 };
 exports.MidtransController = MidtransController;
 __decorate([
@@ -38,6 +41,12 @@ __decorate([
     __metadata("design:paramtypes", [create_payment_dto_1.CreatePaymentDto]),
     __metadata("design:returntype", Promise)
 ], MidtransController.prototype, "createPayment", null);
+__decorate([
+    (0, common_1.Get)('test'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], MidtransController.prototype, "testEndpoint", null);
 exports.MidtransController = MidtransController = __decorate([
     (0, common_1.Controller)('midtrans'),
     __metadata("design:paramtypes", [midtrans_service_1.MidtransService])
