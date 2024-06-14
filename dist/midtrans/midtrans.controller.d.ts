@@ -6,5 +6,5 @@ export declare class MidtransController {
     createPayment(createPaymentDto: CreatePaymentDto): Promise<{
         token: any;
     }>;
-    testEndpoint(): string;
+    getTransactionStatus(orderId: string): Promise<any>;
 }

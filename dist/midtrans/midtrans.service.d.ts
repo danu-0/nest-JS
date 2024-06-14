@@ -5,4 +5,5 @@ export declare class MidtransService {
     private readonly merchantBaseUrl;
     createMidtransPayment(createPaymentDto: CreatePaymentDto): Promise<any>;
     getPaymentEndpoint(): string;
+    getTransactionStatus(orderId: string): Promise<any>;
 }

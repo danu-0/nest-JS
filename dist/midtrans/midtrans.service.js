@@ -57,6 +57,20 @@ let MidtransService = class MidtransService {
     getPaymentEndpoint() {
         return `${this.merchantBaseUrl}/midtrans/payment`;
     }
+    async getTransactionStatus(orderId) {
+        try {
+            const snap = new midtransClient.Snap({
+                isProduction: false,
+                serverKey: this.serverKey,
+            });
+            const transaction = await snap.transaction.status(orderId);
+            return transaction;
+        }
+        catch (error) {
+            console.error('Error fetching transaction status:', error);
+            throw new Error('Failed to fetch transaction status: ' + error.message);
+        }
+    }
 };
 exports.MidtransService = MidtransService;
 exports.MidtransService = MidtransService = __decorate([

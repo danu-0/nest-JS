@@ -29,8 +29,14 @@ let MidtransController = class MidtransController {
             throw new common_1.HttpException(error.message, common_1.HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    testEndpoint() {
-        return 'Midtrans endpoint is working!';
+    async getTransactionStatus(orderId) {
+        try {
+            const status = await this.midtransService.getTransactionStatus(orderId);
+            return status;
+        }
+        catch (error) {
+            throw new common_1.HttpException(error.message, common_1.HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 };
 exports.MidtransController = MidtransController;
@@ -42,11 +48,12 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], MidtransController.prototype, "createPayment", null);
 __decorate([
-    (0, common_1.Get)('test'),
+    (0, common_1.Get)('transaction/:orderId'),
+    __param(0, (0, common_1.Param)('orderId')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], MidtransController.prototype, "testEndpoint", null);
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], MidtransController.prototype, "getTransactionStatus", null);
 exports.MidtransController = MidtransController = __decorate([
     (0, common_1.Controller)('midtrans'),
     __metadata("design:paramtypes", [midtrans_service_1.MidtransService])
