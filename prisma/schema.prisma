@@ -31,7 +31,6 @@ model Produk {
   gambar    String?
   pesanan   Pesanan[]
 }
-
 model Pesanan {
   id        Int      @id @default(autoincrement())
   userId    Int
@@ -45,26 +44,21 @@ model Pesanan {
   updatedAt DateTime @default(now())
   produk    Produk   @relation(fields: [produkId], references: [id])
   user      User     @relation(fields: [userId], references: [id])
-  payments  Payment[]
+  transaksi Transaksi[]
+  
 }
-
-model Payment {
-  id          Int         @id @default(autoincrement())
-  namaPemesan String?
-  jumlahBayar Int
-  status      PaymentStatus
-  createdAt   DateTime    @default(now())
-  updatedAt   DateTime    @updatedAt
-  pesanan     Pesanan[]
+model Transaksi {
+  id           Int      @id @default(autoincrement())
+  orderId      String   @unique
+  jumlahProduk Int
+  totalHarga   Int
+  status       String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  pesanan      Pesanan[]
 }
 
 enum Role {
   PELANGGAN
   ADMIN
-}
-
-enum PaymentStatus {
-  PENDING
-  SUCCESS
-  FAILED
 }

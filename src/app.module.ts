@@ -7,9 +7,10 @@ import { UserModule } from './user/user.module';
 import { LoginModule } from './login/login.module';
 import { PesananModule } from './pesanan/pesanan.module';
 import { MidtransModule } from './midtrans/midtrans.module';
+import { TransaksiModule } from './transaksi/transaksi.module';
 
 @Module({
-  imports: [DatabaseModule, ProductModule, UserModule, LoginModule, PesananModule, MidtransModule],
+  imports: [DatabaseModule, ProductModule, UserModule, LoginModule, PesananModule, MidtransModule, TransaksiModule],
   controllers: [AppController],
   providers: [AppService],
 })
