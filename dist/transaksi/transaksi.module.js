@@ -18,6 +18,7 @@ exports.TransaksiModule = TransaksiModule = __decorate([
     (0, common_1.Module)({
         controllers: [transaksi_controller_1.TransaksiController],
         providers: [transaksi_service_1.TransaksiService, database_service_1.DatabaseService],
+        exports: [transaksi_service_1.TransaksiService]
     })
 ], TransaksiModule);
 //# sourceMappingURL=transaksi.module.js.map

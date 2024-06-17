@@ -50,6 +50,7 @@ model Pesanan {
 model Transaksi {
   id           Int      @id @default(autoincrement())
   orderId      String   @unique
+  namaPemesan  String
   jumlahProduk Int
   totalHarga   Int
   status       String

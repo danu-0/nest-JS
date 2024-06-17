@@ -17,8 +17,15 @@ let TransaksiService = class TransaksiService {
         this.prisma = prisma;
     }
     async createTransaksi(data) {
+        const { orderId, namaPemesan, jumlahProduk, totalHarga, status } = data;
         return this.prisma.transaksi.create({
-            data,
+            data: {
+                orderId,
+                namaPemesan,
+                jumlahProduk,
+                totalHarga,
+                status,
+            },
         });
     }
     async getTransaksiById(id) {

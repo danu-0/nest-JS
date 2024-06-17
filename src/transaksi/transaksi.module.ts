@@ -6,5 +6,6 @@ import { DatabaseService } from 'src/database/database.service';
 @Module({
   controllers: [TransaksiController],
   providers: [TransaksiService, DatabaseService],
+  exports: [TransaksiService]
 })
 export class TransaksiModule {}

@@ -8,15 +8,23 @@ export class TransaksiService {
 
   async createTransaksi(data: {
     orderId: string;
+    namaPemesan: string;
     jumlahProduk: number;
     totalHarga: number;
     status: string;
   }): Promise<Transaksi> {
+    const { orderId, namaPemesan, jumlahProduk, totalHarga, status } = data;
+    
     return this.prisma.transaksi.create({
-      data,
+      data: {
+        orderId,
+        namaPemesan,
+        jumlahProduk,
+        totalHarga,
+        status,
+      },
     });
   }
-
   async getTransaksiById(id: number): Promise<Transaksi | null> {
     return this.prisma.transaksi.findUnique({
       where: { id },
@@ -39,5 +47,4 @@ export class TransaksiService {
       where: { id },
     });
   }
-
 }

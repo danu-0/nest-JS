@@ -5,6 +5,7 @@ export declare class TransaksiService {
     constructor(prisma: DatabaseService);
     createTransaksi(data: {
         orderId: string;
+        namaPemesan: string;
         jumlahProduk: number;
         totalHarga: number;
         status: string;

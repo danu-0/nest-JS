@@ -6,7 +6,13 @@ export class TransaksiController {
   constructor(private readonly transaksiService: TransaksiService) {}
 
   @Post()
-  async create(@Body() createTransaksiDto: { orderId: string, jumlahProduk: number, totalHarga: number, status: string }) {
+  async create(@Body() createTransaksiDto: {
+    orderId: string,
+    namaPemesan: string, // Tambah field namaPemesan
+    jumlahProduk: number,
+    totalHarga: number,
+    status: string
+  }) {
     return this.transaksiService.createTransaksi(createTransaksiDto);
   }
 

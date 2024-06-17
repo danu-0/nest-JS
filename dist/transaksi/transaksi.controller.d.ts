@@ -4,12 +4,14 @@ export declare class TransaksiController {
     constructor(transaksiService: TransaksiService);
     create(createTransaksiDto: {
         orderId: string;
+        namaPemesan: string;
         jumlahProduk: number;
         totalHarga: number;
         status: string;
     }): Promise<{
         id: number;
         orderId: string;
+        namaPemesan: string;
         jumlahProduk: number;
         totalHarga: number;
         status: string;
@@ -19,6 +21,7 @@ export declare class TransaksiController {
     findOne(id: string): Promise<{
         id: number;
         orderId: string;
+        namaPemesan: string;
         jumlahProduk: number;
         totalHarga: number;
         status: string;
@@ -28,6 +31,7 @@ export declare class TransaksiController {
     findAll(): Promise<{
         id: number;
         orderId: string;
+        namaPemesan: string;
         jumlahProduk: number;
         totalHarga: number;
         status: string;
@@ -39,6 +43,7 @@ export declare class TransaksiController {
     }): Promise<{
         id: number;
         orderId: string;
+        namaPemesan: string;
         jumlahProduk: number;
         totalHarga: number;
         status: string;
@@ -48,6 +53,7 @@ export declare class TransaksiController {
     remove(id: string): Promise<{
         id: number;
         orderId: string;
+        namaPemesan: string;
         jumlahProduk: number;
         totalHarga: number;
         status: string;
