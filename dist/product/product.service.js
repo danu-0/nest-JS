@@ -40,6 +40,16 @@ let ProductService = class ProductService {
             where: { id },
         });
     }
+    async updateStock(id, stok) {
+        return this.databaseservice.produk.update({
+            where: { id },
+            data: {
+                stok: {
+                    decrement: stok,
+                }
+            }
+        });
+    }
 };
 exports.ProductService = ProductService;
 exports.ProductService = ProductService = __decorate([

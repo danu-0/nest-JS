@@ -47,6 +47,19 @@ export declare class ProductController {
         updatedAt: Date;
         gambar: string;
     }>;
+    updateStock(id: string, body: {
+        stok: number;
+    }): Promise<{
+        id: number;
+        nama: string;
+        harga: number;
+        stok: number;
+        desk: string;
+        kategori: string;
+        createdAt: Date;
+        updatedAt: Date;
+        gambar: string;
+    }>;
     remove(id: string): Promise<{
         id: number;
         nama: string;

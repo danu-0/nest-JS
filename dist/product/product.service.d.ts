@@ -58,4 +58,15 @@ export declare class ProductService {
         updatedAt: Date;
         gambar: string;
     }>;
+    updateStock(id: number, stok: number): Promise<{
+        id: number;
+        nama: string;
+        harga: number;
+        stok: number;
+        desk: string;
+        kategori: string;
+        createdAt: Date;
+        updatedAt: Date;
+        gambar: string;
+    }>;
 }

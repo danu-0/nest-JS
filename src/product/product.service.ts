@@ -34,4 +34,15 @@ export class ProductService {
       where: { id },
     });
   }
-}
+  async updateStock(id: number, stok: number){
+    return this.databaseservice.produk.update({
+      where:{id},
+      data:{
+        stok: {
+          decrement: stok,
+        }}
+    });
+    
+    }
+  }
+

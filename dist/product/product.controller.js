@@ -32,6 +32,9 @@ let ProductController = class ProductController {
     update(id, updateProductDto) {
         return this.productService.update(+id, updateProductDto);
     }
+    updateStock(id, body) {
+        return this.productService.updateStock(+id, body.stok);
+    }
     remove(id) {
         return this.productService.remove(+id);
     }
@@ -65,6 +68,14 @@ __decorate([
     __metadata("design:paramtypes", [String, Object]),
     __metadata("design:returntype", void 0)
 ], ProductController.prototype, "update", null);
+__decorate([
+    (0, common_1.Patch)('update-stock/:id'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:returntype", void 0)
+], ProductController.prototype, "updateStock", null);
 __decorate([
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)('id')),

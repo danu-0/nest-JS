@@ -26,6 +26,11 @@ export class ProductController {
     return this.productService.update(+id, updateProductDto);
   }
 
+  @Patch('update-stock/:id')
+  updateStock(@Param('id') id: string, @Body() body: { stok: number }) {
+    return this.productService.updateStock(+id, body.stok);
+  }
+
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.productService.remove(+id);
